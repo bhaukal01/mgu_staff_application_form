@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staff Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        .form-container {
+            float: right;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: #2a2a2a;
+            color: #ffffff;
+            border: 1px solid #444;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background-color: #333;
+            color: #ffffff;
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .rules-container {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .rules-container h4 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .rules-container ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .rules-container ul li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left Side: Image & Rules -->
+            <div class="col-md-4 text-center">
+                <img src="/logo.png" alt="Application Image" class="img-fluid rounded">
+                <div class="rules-container mt-3">
+                    <h4>Application Rules</h4>
+                    <ul>
+                        <li>✔ Must be at least 14 years old.</li>
+                        <li>✔ Must have a valid Discord account.</li>
+                        <li>✔ No prior bans on MGU.ONE.</li>
+                        <li>✔ Must be active and engage with the community.</li>
+                        <li>✔ Prior experience is a plus but not mandatory.</li>
+                        <li>✔ Avoid submitting the form multiple times.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2 class="text-center">MGU Staff Application Form</h2>
+                    <form action="/form/submit" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">First Name:</label>
+                            <input type="text" name="first_name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Last Name:</label>
+                            <input type="text" name="second_name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email ID:</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" name="age_14plus">
+                            <label class="form-check-label">Are you 14+?</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Discord Username:</label>
+                            <input type="text" name="discord_username" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Discord ID:</label>
+                            <input type="text" name="discord_id" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Minecraft Account Type:</label>
+                            <select name="mc_account_type" class="form-select">
+                                <option value="Cracked">Cracked</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Minecraft IGN:</label>
+                            <input type="text" name="mc_ign" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">How much can you be active on Discord?</label>
+                            <textarea name="discord_activity" class="form-control" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">How much can you be active in-game?</label>
+                            <textarea name="game_activity" class="form-control" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Can you join VC and speak when needed?</label>
+                            <select name="vc_ability" class="form-select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" name="working_elsewhere">
+                            <label class="form-check-label">Are you currently working for any Minecraft server?</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Any prior experience as Minecraft staff?</label>
+                            <textarea name="staff_experience" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

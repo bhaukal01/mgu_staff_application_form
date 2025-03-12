@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Application</title>
+</head>
+
+<body>
+    <h2>Application Details</h2>
+    <p><b>Name:</b>
+        <%= application.first_name %>
+            <%= application.second_name %>
+    </p>
+    <p><b>Email:</b>
+        <%= application.email %>
+    </p>
+    <p><b>Minecraft IGN:</b>
+        <%= application.mc_ign %>
+    </p>
+    <p><b>Status:</b>
+        <%= application.status %>
+    </p>
+    <p><b>14+:</b>
+        <% if (application.age_14plus==1) { %>
+            Yes
+            <% } else { %>
+                No
+                <% } %>
+    </p>
+    <p><b>Discord User:</b>
+        <%= application.discord_username %>
+    </p>
+    <p><b>Discord ID:</b>
+        <%= application.discord_id %>
+    </p>
+    <p><b>Minecraft Account type:</b>
+        <%= application.mc_account_type %>
+    </p>
+    <p><b>In-game Name:</b>
+        <%= application.mc_ign %>
+    </p>
+    <p><b>Discord Availability:</b>
+        <%= application.discord_activity %>
+    </p>
+    <p><b>In-game Availability:</b>
+        <%= application.game_activity %>
+    </p>
+    <p><b>Can VC?:</b>
+        <%= application.vc_ability %>
+    </p>
+    <p><b>Working Elsewhere:</b>
+        <% if (application.working_elsewhere==1) { %>
+            Yes
+            <% } else { %>
+                No
+                <% } %>
+    </p>
+    <p><b>Staff xperience:</b>
+        <%= application.staff_experience %>
+    </p>
+    <% if (application.status==='Pending' ) { %>
+        <form action="/admin/update/<%= application.id %>" method="POST">
+            <button type="submit" name="status" value="Accepted">Accept</button>
+            <button type="submit" name="status" value="Rejected">Reject</button>
+        </form>
+        <% } %>
+            <br>
+            <a href="/admin/delete/<%= application.id %>" onclick="return confirm('Delete it for sure?');">Delete</a>
+            <br>
+            <br>
+            <a href="/admin">Back to Dashboard</a>
+</body>
+
+</html>

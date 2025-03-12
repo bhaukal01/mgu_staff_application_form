@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <h2>Staff Applications</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Minecraft IGN</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <% applications.forEach(app=> { %>
+            <tr>
+                <td>
+                    <%= app.id %>
+                </td>
+                <td>
+                    <%= app.first_name %>
+                        <%= app.second_name %>
+                </td>
+                <td>
+                    <%= app.mc_ign %>
+                </td>
+                <td>
+                    <%= app.status %>
+                </td>
+                <td>
+                    <a href="/admin/view/<%= app.id %>">View</a>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <br>
+    <a href="/admin/logout">Logout</a>
+</body>
+
+</html>
