@@ -6,19 +6,19 @@ const db = require("./config/db");
 const formRoutes = require("./routes/form");
 const adminRoutes = require("./routes/admin");
 const landingRoutes = require("./routes/landing");
-const path = require('path');
+const path = require("path");
 
-require("dotenv").config();
+dotenv.config();
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Session Middleware for Admin Authentication
 app.use(
     session({
-        secret: "admin-secret-key",
+        secret: process.env.SESSION_SECRET || "admin-secret-key",
         resave: false,
         saveUninitialized: true,
     })
@@ -37,10 +37,9 @@ app.use("/form", formRoutes);
 app.use("/admin", adminRoutes);
 app.use("/", landingRoutes);
 
+// Debugging
+console.log("DB_USER:", process.env.DB_USER);
+console.log("DB_PASSWORD:", process.env.DB_PASSWORD ? "Exists" : "Not Found");
 
-console.log("DB_USER:", process.env.DB_USER); // Debugging
-console.log("DB_PASSWORD:", process.env.DB_PASSWORD ? "Exists" : "Not Found"); // Debugging
-
-
-// // Start Server
-// app.listen(3000, () => console.log("Server running on port 3000"));
+// Export the app for Vercel
+module.exports = app;
