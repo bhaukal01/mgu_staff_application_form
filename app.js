@@ -43,4 +43,4 @@ console.log("DB_PASSWORD:", process.env.DB_PASSWORD ? "Exists" : "Not Found"); /
 
 
 // Start Server
-app.listen(3000, () => console.log("Server running on port 3000"));
+// app.listen(3000, () => console.log("Server running on port 3000"));
